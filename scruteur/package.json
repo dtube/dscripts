@@ -1,0 +1,17 @@
+{
+  "name": "scruteur",
+  "version": "0.0.1",
+  "description": "looks at steem blockchain and saves dtube videos that generated rewards",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "Adrien M",
+  "license": "ISC",
+  "dependencies": {
+    "jsonfile": "^4.0.0",
+    "mysql": "^2.15.0",
+    "steem": "^0.7.1"
+  }
+}
