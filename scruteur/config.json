@@ -1,6 +1,6 @@
 {
-  "limit": 100,
-  "refreshTime": 4000,
+  "limit": 5,
+  "refreshTime": 10000,
   "1MVest": 489.241
 }
 

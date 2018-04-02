@@ -33,7 +33,7 @@ setInterval(function() {
         cbr.reward = parseFloat(cbr.reward.split(' ')[0])
         cbr.rewardsp = cbr.reward*config["1MVest"]/1000000
         parseCbr(cbr, function(err) {
-          if (err) throw err;
+          //if (err) console.log(err.name);
         })
       } else {
         console.log('ignore', history[i][1].op[0])
@@ -85,16 +85,26 @@ function saveFile(history) {
 
 function pinOnIpfs(hash) {
   if (!isValidHash(hash)) return;
-  exec('ipfs pin add '+hash, (err, stdout, stderr) => {
+  //exec('ipfs pin add '+hash, (err, stdout, stderr) => {
+  exec('curl https://ipfs.io/ipfs/'+hash+' > ~/videostmp/'+hash, (err, stdout, stderr) => {
     if (err) {
+      console.log(err)
       // node couldn't execute the command
       return;
+    } else {
+      // the *entire* stdout and stderr (buffered)
+      console.log(`${stdout}`);
+      if (stderr && stderr.length>0)
+        console.log(`e: ${stderr}`);
+      exec('mv ~/videostmp/'+hash+' ~/videos/', (err, stdout, stderr) => {
+        //console.log(`${stdout}`)
+      })
     }
-  
+
     // the *entire* stdout and stderr (buffered)
     console.log(`${stdout}`);
     if (stderr && stderr.length>0)
-      console.log(`stderr: ${stderr}`);
+      console.log(`e: ${stderr}`);
   });
 }
 

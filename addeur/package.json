@@ -1,0 +1,11 @@
+{
+  "name": "addeur",
+  "version": "1.0.0",
+  "description": "adds files to ipfs from a folder",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Adrien M",
+  "license": "ISC"
+}
